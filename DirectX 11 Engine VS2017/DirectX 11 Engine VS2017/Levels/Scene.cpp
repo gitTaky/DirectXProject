@@ -79,7 +79,7 @@ void Scene::Draw(const Camera* appliedCamera) {
 	ImGui::DragFloat("Ambient Light Strength", &this->cb_ps_light.data.ambientLightStrength, 0.01f, 0.f, 1.f);
 	ImGui::DragFloat3("Dynamic Light Color", &this->light.cb_ps_light.data.dynamicLightColor.x, 0.01f, 0.f, 1.f);
 	ImGui::DragFloat("Dynamic Light Strength", &this->light.cb_ps_light.data.dynamicLightStrength, 0.01f, 0.f, 10.f);
-	ImGui::DragFloat3("Dynamic Light Position", &this->light.cb_ps_light.data.dynamicLightPosition.x, 0.01f, 0.f, 1.f);
+	ImGui::DragFloat3("Dynamic Light Position", &this->light.cb_ps_light.data.dynamicLightPosition.x, 0.01f, -10.f, 10.f);
 	ImGui::End();
 	//Assemble Together Draw Data
 	ImGui::Render();

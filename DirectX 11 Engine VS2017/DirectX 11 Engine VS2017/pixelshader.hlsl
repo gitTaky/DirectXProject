@@ -35,6 +35,6 @@ float4 main(PS_INPUT input) : SV_TARGET
     
     appliedLight += diffuseLight;
 
-    float3 finalColor = sampleColor * appliedLight;
+    float3 finalColor = saturate(sampleColor * appliedLight);
     return float4(finalColor, 1.f);
 }

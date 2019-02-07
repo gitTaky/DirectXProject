@@ -1,5 +1,5 @@
 #pragma once
-#include "d:\NetEase\DirectX-11-Engine-VS2017-Tutorial_44\DirectX 11 Engine VS2017\DirectX 11 Engine VS2017\GameObjects\Actor.h"
+#include "../GameObjects/Actor.h"
 class Cube :
 	public Actor {
 public:
