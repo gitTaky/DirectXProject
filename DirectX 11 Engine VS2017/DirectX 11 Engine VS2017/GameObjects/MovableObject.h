@@ -30,10 +30,10 @@ public:
 	virtual void AdjustRotation(float x, float y, float z);
 	virtual void AdjustRotation(const XMMATRIX & transformMatrix);
 
-	virtual const XMVECTOR & GetForwardVector();
-	virtual const XMVECTOR & GetRightVector();
-	virtual const XMVECTOR & GetBackwardVector();
-	virtual const XMVECTOR & GetLeftVector();
+	virtual const XMVECTOR & GetForwardVector(bool omitY = false);
+	virtual const XMVECTOR & GetRightVector(bool omitY = false);
+	virtual const XMVECTOR & GetBackwardVector(bool omitY = false);
+	virtual const XMVECTOR & GetLeftVector(bool omitY = false);
 
 	virtual void MoveForward(double delta);
 	virtual void MoveBackward(double delta);
@@ -50,6 +50,7 @@ public:
 	virtual void RollRight(double delta);
 
 	virtual void ApplyMovement();
+	virtual void UpateDirectionVectors();
 
 	virtual void Tick(double delta);
 
@@ -76,6 +77,13 @@ protected:
 	XMVECTOR vec_backward;
 	XMVECTOR vec_up;
 	XMVECTOR vec_down;
+
+	XMVECTOR vec_forward_noY;
+	XMVECTOR vec_left_noY;
+	XMVECTOR vec_right_noY;
+	XMVECTOR vec_backward_noY;
+	XMVECTOR vec_up_noY;
+	XMVECTOR vec_down_noY;
 
 	float speed = 0.01f;
 };

@@ -25,7 +25,7 @@ public:
 	virtual void AdjustScale(float scale);
 
 	virtual void SetTexture(ID3D11ShaderResourceView * texture);
-	virtual void Draw(const XMMATRIX & viewProjectionMatrix);
+	virtual void Draw(const XMMATRIX & viewProjectionMatrix, const XMMATRIX& parentTransform = XMMatrixIdentity());
 
 	virtual ~Actor();
 

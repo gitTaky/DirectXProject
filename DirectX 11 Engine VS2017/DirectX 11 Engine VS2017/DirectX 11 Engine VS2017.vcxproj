@@ -153,6 +153,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="GameObjects\Light.cpp" />
     <ClCompile Include="Models\Cube.cpp" />
     <ClCompile Include="Models\Floor.cpp" />
     <ClCompile Include="Models\Car.cpp" />
@@ -170,7 +171,6 @@
     <ClCompile Include="Graphics\ImGui\imgui_widgets.cpp" />
     <ClCompile Include="Keyboard\KeyboardClass.cpp" />
     <ClCompile Include="Keyboard\KeyboardEvent.cpp" />
-    <ClCompile Include="Models\Model.cpp" />
     <ClCompile Include="Mouse\MouseClass.cpp" />
     <ClCompile Include="Mouse\MouseEvent.cpp" />
     <ClCompile Include="GameObjects\MovableObject.cpp" />
@@ -186,6 +186,7 @@
     <ClCompile Include="WindowContainer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="GameObjects\Light.h" />
     <ClInclude Include="Models\Cube.h" />
     <ClInclude Include="Models\Floor.h" />
     <ClInclude Include="Models\Car.h" />
@@ -209,7 +210,6 @@
     <ClInclude Include="Graphics\IndexBuffer.h" />
     <ClInclude Include="Keyboard\KeyboardClass.h" />
     <ClInclude Include="Keyboard\KeyboardEvent.h" />
-    <ClInclude Include="Models\Model.h" />
     <ClInclude Include="Mouse\MouseClass.h" />
     <ClInclude Include="Mouse\MouseEvent.h" />
     <ClInclude Include="GameObjects\MovableObject.h" />

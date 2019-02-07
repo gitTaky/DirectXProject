@@ -21,6 +21,10 @@ const XMMATRIX & Camera::GetViewMatrix() const
 	return this->viewMatrix;
 }
 
+const XMMATRIX & Camera::GetCenteredViewMatrix() const {
+	return this->centeredviewMatrix;
+}
+
 const XMMATRIX & Camera::GetProjectionMatrix() const
 {
 	return this->projectionMatrix;
@@ -59,13 +63,18 @@ void Camera::ApplyMovement() {
 	auto absoluteRotation = this->GetAbsoluteRotation();
 
 	//Calculate camera rotation matrix
+
+	//Calculate up direction based on current rotation
+	XMVECTOR upDir = XMVector3TransformCoord(this->DEFAULT_UP_VECTOR, absoluteRotation);
 	//Calculate unit vector of cam target based off camera forward value transformed by cam rotation matrix
 	XMVECTOR camTarget = XMVector3TransformCoord(this->DEFAULT_FORWARD_VECTOR, absoluteRotation);
+
+	//Rebuild view matrix
+	this->centeredviewMatrix = XMMatrixLookAtLH({ 0.f, 0.f, 0.f, 0.f }, camTarget, upDir);
+
 	//Adjust cam target to be offset by the camera's current position
 	auto camPos = XMVector3TransformCoord(this->posVector, absoluteTransform);
 	camTarget += camPos;
-	//Calculate up direction based on current rotation
-	XMVECTOR upDir = XMVector3TransformCoord(this->DEFAULT_UP_VECTOR, absoluteRotation);
 	//Rebuild view matrix
 	this->viewMatrix = XMMatrixLookAtLH(camPos, camTarget, upDir);
 

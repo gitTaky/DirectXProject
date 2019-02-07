@@ -10,6 +10,7 @@ public:
 	void SetProjectionValues(float fovDegrees, float aspectRatio, float nearZ, float farZ);
 
 	const XMMATRIX & GetViewMatrix() const;
+	const XMMATRIX & GetCenteredViewMatrix() const;
 	const XMMATRIX & GetProjectionMatrix() const;
 
 	void SetLookAtPos(XMFLOAT3 lookAtPos);
@@ -18,5 +19,6 @@ public:
 private:
 
 	XMMATRIX viewMatrix;
+	XMMATRIX centeredviewMatrix;
 	XMMATRIX projectionMatrix;
 };

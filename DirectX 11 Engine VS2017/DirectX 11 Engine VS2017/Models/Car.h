@@ -14,7 +14,13 @@ public:
 
 	Camera firstPerspective;
 	Camera thirdPerspective;
+
+	virtual void Accelerate(double dt);
+	virtual void TurnRight(double rate);
 protected:
 	virtual void ApplyMovement() override;
+
+	XMVECTOR TURNING_RATE = XMVectorSet(0.f, XM_PIDIV4 / 10, 0.f, 0.f);
+	float turningRight = 0;
 };
 

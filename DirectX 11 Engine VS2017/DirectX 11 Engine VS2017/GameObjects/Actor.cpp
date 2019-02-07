@@ -14,11 +14,16 @@ void Actor::SetTexture(ID3D11ShaderResourceView * texture) {
 	this->texture = texture;
 }
 
-void Actor::Draw(const XMMATRIX & viewProjectionMatrix) {
+void Actor::Draw(const XMMATRIX & viewProjectionMatrix, const XMMATRIX& parentTransform) {
 	//Update Constant buffer with WVP Matrix
-	XMMATRIX transformMatrix = this->scaleMatrix * this->worldMatrix * viewProjectionMatrix;
-	this->cb_vs_vertexshader.data.mat = transformMatrix; //Calculate World-View-Projection Matrix
-	this->cb_vs_vertexshader.data.mat = XMMatrixTranspose(this->cb_vs_vertexshader.data.mat);
+	XMMATRIX transformMatrix = this->scaleMatrix * this->worldMatrix * parentTransform * viewProjectionMatrix;
+	this->cb_vs_vertexshader.data.wpvMatrix = transformMatrix; //Calculate World-View-Projection Matrix
+	this->cb_vs_vertexshader.data.wpvMatrix = XMMatrixTranspose(this->cb_vs_vertexshader.data.wpvMatrix);
+
+	XMMATRIX worldTransform = this->scaleMatrix * this->worldMatrix * parentTransform;
+	this->cb_vs_vertexshader.data.worldMatrix = worldTransform; //Calculate World-View-Projection Matrix
+	this->cb_vs_vertexshader.data.worldMatrix = XMMatrixTranspose(this->cb_vs_vertexshader.data.worldMatrix);
+
 	this->cb_vs_vertexshader.ApplyChanges();
 	this->deviceContext->VSSetConstantBuffers(0, 1, this->cb_vs_vertexshader.GetAddressOf());
 
@@ -29,7 +34,7 @@ void Actor::Draw(const XMMATRIX & viewProjectionMatrix) {
 	this->deviceContext->DrawIndexed(this->indexBuffer.IndexCount(), 0, 0); //Draw
 
 	for (auto& a : attachments) {
-		a->Draw(transformMatrix);
+		a->Draw(viewProjectionMatrix, worldTransform);
 	}
 }
 
@@ -39,11 +44,12 @@ bool Actor::InitializeHelper(ID3D11Device * device, ID3D11DeviceContext * device
 	this->device = device;
 	this->deviceContext = deviceContext;
 	this->texture = texture;
-	auto hr = this->cb_vs_vertexshader.Initialize(this->device, this->deviceContext);
-	COM_ERROR_IF_FAILED(hr, "Failed to initialize constant buffer.");
-
+	
 	try {
-		HRESULT hr = DirectX::CreateWICTextureFromFile(this->device, texturePath.c_str(), nullptr, texture.GetAddressOf());
+		auto hr = this->cb_vs_vertexshader.Initialize(this->device, this->deviceContext);
+		COM_ERROR_IF_FAILED(hr, "Failed to initialize constant buffer.");
+
+		hr = DirectX::CreateWICTextureFromFile(this->device, texturePath.c_str(), nullptr, texture.GetAddressOf());
 		COM_ERROR_IF_FAILED(hr, "Failed to create wic texture from file.");
 
 		//Load Vertex Data

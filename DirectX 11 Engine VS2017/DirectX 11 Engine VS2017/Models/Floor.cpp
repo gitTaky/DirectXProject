@@ -9,10 +9,10 @@ bool Floor::Initialize(ID3D11Device * pDevice, ID3D11DeviceContext * pDeviceCont
 	//Textured Square
 	std::vector<Vertex> v =
 	{
-		Vertex(-1.f,  0.f, -1.f, 0.0f, 1.0f), //FRONT Bottom Left   - [0]
-		Vertex(-1.f,   0.f, 1.f, 0.0f, 0.0f), //FRONT Top Left      - [1]
-		Vertex(1.f,   0.f, -1.f, 1.0f, 0.0f), //FRONT Top Right     - [2]
-		Vertex(1.f,  0.f, 1.f, 1.0f, 1.0f), //FRONT Bottom Right   - [3]
+		Vertex(-1.f,  0.f, -1.f, 0.0f, 1.0f, 0.f, 1.f, 0.f), //FRONT Bottom Left   - [0]
+		Vertex(-1.f,   0.f, 1.f, 0.0f, 0.0f, 0.f, 1.f, 0.f), //FRONT Top Left      - [1]
+		Vertex(1.f,   0.f, -1.f, 1.0f, 0.0f, 0.f, 1.f, 0.f), //FRONT Top Right     - [2]
+		Vertex(1.f,  0.f, 1.f, 1.0f, 1.0f, 0.f, 1.f, 0.f), //FRONT Bottom Right   - [3]
 	};
 
 	std::vector<DWORD> indices =

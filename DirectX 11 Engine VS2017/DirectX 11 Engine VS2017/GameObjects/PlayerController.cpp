@@ -13,26 +13,48 @@ void PlayerController::Initialize(Graphics * pGraphics) {
 
 void PlayerController::ScanInputs(double dt) {
 	if (KeyboardClass::KeyIsPressed('W')) {
-		this->KeyWPressed(dt);
+		if (this->view == View::free) {
+			this->controlledObject->MoveForward(dt);
+		}
+		else {
+			static_cast<Car*>(this->controlledObject)->Accelerate(dt);
+		}
 	}
 	if (KeyboardClass::KeyIsPressed('S')) {
-		this->KeySPressed(dt);
+		if (this->view == View::free) {
+			this->controlledObject->MoveBackward(dt);
+		}
+		else {
+			static_cast<Car*>(this->controlledObject)->Accelerate(-dt);
+		}
 	}
 	if (KeyboardClass::KeyIsPressed('A')) {
-		this->KeyAPressed(dt);
+		if (this->view == View::free) {
+			this->controlledObject->MoveLeft(dt);
+		}
+		else {
+			static_cast<Car*>(this->controlledObject)->TurnRight(-1);
+		}
 	}
 	if (KeyboardClass::KeyIsPressed('D')) {
-		this->KeyDPressed(dt);
+		if (this->view == View::free) {
+			this->controlledObject->MoveRight(dt);
+		}
+		else {
+			static_cast<Car*>(this->controlledObject)->TurnRight(1);
+		}
+	}
+	if (!KeyboardClass::KeyIsPressed('A') && !KeyboardClass::KeyIsPressed('D')) {
+		if (this->view != View::free) {
+			static_cast<Car*>(this->controlledObject)->TurnRight(0);
+		}
 	}
 	if (KeyboardClass::KeyIsPressed(VK_SPACE)) {
-		this->KeySpacePressed(dt);
+			this->KeySpacePressed(dt);
 	}
 	if (KeyboardClass::KeyIsPressed('Z')) {
 		this->KeyZPressed(dt);
 	}
-	/*if (KeyboardClass::KeyIsPressed('C')) {
-		this->KeyCPressed(dt);
-	}*/
 	while (!KeyboardClass::KeyBufferIsEmpty()) {
 		auto ke = KeyboardClass::ReadKey();
 		if (ke.GetKeyCode() == 'C' && ke.IsPress()) {
@@ -55,7 +77,12 @@ void PlayerController::KeyWPressed(double dt) {
 }
 
 void PlayerController::KeyAPressed(double dt) {
-	this->controlledObject->MoveLeft(dt);
+	if (this->view == View::free) {
+		this->controlledObject->MoveLeft(dt);
+	}
+	else {
+		this->controlledObject->RotateLeft(dt);
+	}
 }
 
 void PlayerController::KeySPressed(double dt) {
@@ -63,7 +90,12 @@ void PlayerController::KeySPressed(double dt) {
 }
 
 void PlayerController::KeyDPressed(double dt) {
-	this->controlledObject->MoveRight(dt);
+	if (this->view == View::free) {
+		this->controlledObject->MoveRight(dt);
+	}
+	else {
+		this->controlledObject->RotateRight(dt);
+	}
 }
 
 void PlayerController::KeyZPressed(double dt) {
@@ -95,7 +127,7 @@ void PlayerController::KeyCPressed(double dt) {
 }
 
 void PlayerController::MouseMove(double dt, double x, double y) {
-	if (view == View::third) {
+	if (view == View::free) {
 		this->controlledObject->AdjustRotation((float)y * 0.01f, (float)x * 0.01f, 0);
 	}
 }

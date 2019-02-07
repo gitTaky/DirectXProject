@@ -3,11 +3,18 @@
 
 struct CB_VS_vertexshader
 {
-	DirectX::XMMATRIX mat;
+	DirectX::XMMATRIX wpvMatrix;
+	DirectX::XMMATRIX worldMatrix;
 };
 
-struct CB_PS_light
+struct CB_PS_ambientLight
 {
-	DirectX::XMFLOAT3	color;
-	float				strength;
+	DirectX::XMFLOAT3	ambientLightColor;
+	float				ambientLightStrength;
+};
+
+struct CB_PS_dynamicLight {
+	DirectX::XMFLOAT3	dynamicLightColor;
+	float				dynamicLightStrength;
+	DirectX::XMFLOAT3	dynamicLightPosition;
 };
