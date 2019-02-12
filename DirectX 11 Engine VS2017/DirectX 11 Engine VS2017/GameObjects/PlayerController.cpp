@@ -17,7 +17,7 @@ void PlayerController::ScanInputs(double dt) {
 			this->controlledObject->MoveForward(dt);
 		}
 		else {
-			static_cast<Car*>(this->controlledObject)->Accelerate(dt);
+			static_cast<Car*>(this->controlledObject)->Accelerate(dt, 1);
 		}
 	}
 	if (KeyboardClass::KeyIsPressed('S')) {
@@ -25,7 +25,7 @@ void PlayerController::ScanInputs(double dt) {
 			this->controlledObject->MoveBackward(dt);
 		}
 		else {
-			static_cast<Car*>(this->controlledObject)->Accelerate(-dt);
+			static_cast<Car*>(this->controlledObject)->Accelerate(dt, -1);
 		}
 	}
 	if (KeyboardClass::KeyIsPressed('A')) {

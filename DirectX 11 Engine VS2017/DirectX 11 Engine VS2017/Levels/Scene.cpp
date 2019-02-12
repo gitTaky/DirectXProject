@@ -14,6 +14,10 @@ bool Scene::Initialize(ID3D11Device* pDevice, ID3D11DeviceContext* pDeviceContex
 		actors["car"] = std::make_unique<Car>();
 		actors["floor"] = std::make_unique<Floor>();
 		actors["cube"] = std::make_unique<Cube>();
+		actors["cube1"] = std::make_unique<Cube>();
+		actors["cube2"] = std::make_unique<Cube>();
+		actors["cube3"] = std::make_unique<Cube>();
+		actors["cube4"] = std::make_unique<Cube>();
 
 		if (!this->actors["car"]->Initialize(this->pDevice, this->pDeviceContext, DirectX::XMFLOAT3(0, 0, 0)))
 			return false;
@@ -24,6 +28,16 @@ bool Scene::Initialize(ID3D11Device* pDevice, ID3D11DeviceContext* pDeviceContex
 		this->actors["floor"]->SetScale(200);
 
 		if (!this->actors["cube"]->Initialize(this->pDevice, this->pDeviceContext, DirectX::XMFLOAT3(1, 0, 0)))
+			return false;
+		if (!this->actors["cube"]->Initialize(this->pDevice, this->pDeviceContext, DirectX::XMFLOAT3(2, 3, 0)))
+			return false;
+		if (!this->actors["cube1"]->Initialize(this->pDevice, this->pDeviceContext, DirectX::XMFLOAT3(1, 0, -4)))
+			return false;
+		if (!this->actors["cube2"]->Initialize(this->pDevice, this->pDeviceContext, DirectX::XMFLOAT3(3, 1, 3)))
+			return false;
+		if (!this->actors["cube3"]->Initialize(this->pDevice, this->pDeviceContext, DirectX::XMFLOAT3(-3, 0, -2)))
+			return false;
+		if (!this->actors["cube4"]->Initialize(this->pDevice, this->pDeviceContext, DirectX::XMFLOAT3(-2, 1, 1)))
 			return false;
 
 		if (!this->skyBox.Initialize(this->pDevice, this->pDeviceContext, DirectX::XMFLOAT3(0, -1, 0)))

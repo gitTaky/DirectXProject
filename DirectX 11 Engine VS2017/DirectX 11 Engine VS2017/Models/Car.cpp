@@ -115,9 +115,9 @@ bool Car::Initialize(ID3D11Device * pDevice, ID3D11DeviceContext * pDeviceContex
 
 Car::~Car() {}
 
-void Car::Accelerate(double dt) {
-	this->AdjustRotation(this->turningRight * this->TURNING_RATE);
-	this->MoveForward(dt);
+void Car::Accelerate(double dt, double rate) {
+	this->AdjustRotation(rate * this->turningRight * this->TURNING_RATE);
+	this->MoveForward(dt * rate);
 }
 
 void Car::TurnRight(double rate) {

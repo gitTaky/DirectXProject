@@ -15,7 +15,7 @@ public:
 	Camera firstPerspective;
 	Camera thirdPerspective;
 
-	virtual void Accelerate(double dt);
+	virtual void Accelerate(double dt, double rate);
 	virtual void TurnRight(double rate);
 protected:
 	virtual void ApplyMovement() override;
