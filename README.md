@@ -24,7 +24,7 @@ DirectX 11 Engine VS2017\DirectX 11 Engine VS2017 目录下 Libs.zip文件解压
 
 * 自由视角  
 键盘：z space 上下
-鼠标：右键拖动 自动视角
+鼠标：右键拖动 移动视角
 
 ## 控制面板
 左右拖动对应参数进行调节
