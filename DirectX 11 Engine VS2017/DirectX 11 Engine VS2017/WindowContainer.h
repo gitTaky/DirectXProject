@@ -4,6 +4,10 @@
 #include "Mouse/MouseClass.h"
 #include "Graphics/Graphics.h"
 
+/*
+	Maintaining all the data for the window and the graph object
+*/
+
 class WindowContainer
 {
 public:

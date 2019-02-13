@@ -7,6 +7,8 @@
 #include "../GameObjects/Light.h"
 #include <unordered_map>
 #include <memory>
+
+
 class Scene {
 public:
 	Scene();

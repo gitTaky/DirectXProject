@@ -1,7 +1,11 @@
 #pragma once
-#include "ErrorLogger.h"
+#include "Utils/ErrorLogger.h"
 
 class WindowContainer;
+
+/*
+	Intitializing and rendering the Desktop window
+*/
 
 class RenderWindow
 {

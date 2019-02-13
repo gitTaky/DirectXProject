@@ -1,5 +1,8 @@
 #include "WindowContainer.h"
 
+//===========================
+//	Initialize the window
+//===========================
 bool RenderWindow::Initialize(WindowContainer * pWindowContainer, HINSTANCE hInstance, std::string window_title, std::string window_class, int width, int height)
 {
 	this->hInstance = hInstance;
@@ -49,6 +52,10 @@ bool RenderWindow::Initialize(WindowContainer * pWindowContainer, HINSTANCE hIns
 	return true;
 }
 
+//===================================
+//	get messages and dispatch them
+//	handle the close message
+//===================================
 bool RenderWindow::ProcessMessages()
 {
 	// Handle the windows messages.
@@ -93,6 +100,9 @@ RenderWindow::~RenderWindow()
 	}
 }
 
+//==========================
+//	receive dispatched messages and redirect them to WindowContainer.WindowProc
+//==========================
 LRESULT CALLBACK HandleMsgRedirect(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
 	switch (uMsg)
@@ -112,6 +122,10 @@ LRESULT CALLBACK HandleMsgRedirect(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM l
 	}
 }
 
+//===========================
+//	called when creating the window
+//	setup redirection data and callback
+//===========================
 LRESULT CALLBACK HandleMessageSetup(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
 	switch (uMsg)

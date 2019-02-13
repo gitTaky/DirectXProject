@@ -1,9 +1,8 @@
 #pragma once
-#include "..\\ErrorLogger.h"
+#include "../Utils/ErrorLogger.h"
 #include <d3d11.h>
 #include <wrl/client.h>
 #include <vector> 
-
 
 
 class AdapterData
@@ -14,6 +13,9 @@ public:
 	DXGI_ADAPTER_DESC description;
 };
 
+//========================
+// Get all avaliable graphic card
+//========================
 class AdapterReader
 {
 public:

@@ -6,7 +6,6 @@ Camera::Camera()
 	this->posVector = XMLoadFloat3(&this->pos);
 	this->rot = XMFLOAT3(0.0f, 0.0f, 0.0f);
 	this->rotVector = XMLoadFloat3(&this->rot);
-	//this->UpdateViewMatrix();
 	this->ApplyMovement();
 }
 

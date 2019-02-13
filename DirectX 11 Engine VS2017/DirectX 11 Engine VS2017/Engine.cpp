@@ -1,5 +1,10 @@
 #include "Engine.h"
 
+//================================
+//	Initialize window
+//	graphic
+//	playerController
+//================================
 bool Engine::Initialize(HINSTANCE hInstance, std::string window_title, std::string window_class, int width, int height)
 {
 	timer.Start();
@@ -27,17 +32,6 @@ void Engine::Update()
 
 	this->gfx.scene.Tick(dt);
 	this->playerController.ScanInputs(dt);
-
-	/*while (!keyboard.CharBufferIsEmpty())
-	{
-		unsigned char ch = keyboard.ReadChar();
-	}
-
-	while (!keyboard.KeyBufferIsEmpty())
-	{
-		KeyboardEvent kbe = keyboard.ReadKey();
-		unsigned char keycode = kbe.GetKeyCode();
-	}*/
 }
 
 void Engine::RenderFrame()

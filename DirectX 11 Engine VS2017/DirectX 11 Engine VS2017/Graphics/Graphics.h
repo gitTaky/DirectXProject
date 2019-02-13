@@ -5,7 +5,7 @@
 #include <SpriteFont.h>
 #include <WICTextureLoader.h>
 #include "../GameObjects/Camera.h"
-#include "../Timer.h"
+#include "../Utils/Timer.h"
 #include "ImGUI/imgui.h"
 #include "ImGUI/imgui_impl_win32.h"
 #include "ImGUI/imgui_impl_dx11.h"
@@ -30,7 +30,6 @@ private:
 	VertexShader vertexshader;
 	PixelShader pixelshader;
 	ConstantBuffer<CB_VS_vertexshader> cb_vs_vertexshader;
-	//ConstantBuffer<CB_PS_light> cb_ps_light;
 
 
 	Microsoft::WRL::ComPtr<ID3D11DepthStencilView> depthStencilView;

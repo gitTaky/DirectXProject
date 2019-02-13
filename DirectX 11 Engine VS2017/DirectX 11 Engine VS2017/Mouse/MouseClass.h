@@ -2,6 +2,9 @@
 #include "MouseEvent.h"
 #include <queue>
 
+//=========================
+//Mouse input buffer
+//=========================
 class MouseClass
 {
 public:

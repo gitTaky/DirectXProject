@@ -13,36 +13,16 @@ void PlayerController::Initialize(Graphics * pGraphics) {
 
 void PlayerController::ScanInputs(double dt) {
 	if (KeyboardClass::KeyIsPressed('W')) {
-		if (this->view == View::free) {
-			this->controlledObject->MoveForward(dt);
-		}
-		else {
-			static_cast<Car*>(this->controlledObject)->Accelerate(dt, 1);
-		}
+		this->KeyWPressed(dt);
 	}
 	if (KeyboardClass::KeyIsPressed('S')) {
-		if (this->view == View::free) {
-			this->controlledObject->MoveBackward(dt);
-		}
-		else {
-			static_cast<Car*>(this->controlledObject)->Accelerate(dt, -1);
-		}
+		this->KeySPressed(dt);
 	}
 	if (KeyboardClass::KeyIsPressed('A')) {
-		if (this->view == View::free) {
-			this->controlledObject->MoveLeft(dt);
-		}
-		else {
-			static_cast<Car*>(this->controlledObject)->TurnRight(-1);
-		}
+		this->KeyAPressed(dt);
 	}
 	if (KeyboardClass::KeyIsPressed('D')) {
-		if (this->view == View::free) {
-			this->controlledObject->MoveRight(dt);
-		}
-		else {
-			static_cast<Car*>(this->controlledObject)->TurnRight(1);
-		}
+		this->KeyDPressed(dt);
 	}
 	if (!KeyboardClass::KeyIsPressed('A') && !KeyboardClass::KeyIsPressed('D')) {
 		if (this->view != View::free) {
@@ -50,7 +30,7 @@ void PlayerController::ScanInputs(double dt) {
 		}
 	}
 	if (KeyboardClass::KeyIsPressed(VK_SPACE)) {
-			this->KeySpacePressed(dt);
+		this->KeySpacePressed(dt);
 	}
 	if (KeyboardClass::KeyIsPressed('Z')) {
 		this->KeyZPressed(dt);
@@ -72,8 +52,14 @@ void PlayerController::ScanInputs(double dt) {
 	}
 }
 
+
 void PlayerController::KeyWPressed(double dt) {
-	this->controlledObject->MoveForward(dt);
+	if (this->view == View::free) {
+		this->controlledObject->MoveForward(dt);
+	}
+	else {
+		static_cast<Car*>(this->controlledObject)->Accelerate(dt, 1);
+	}
 }
 
 void PlayerController::KeyAPressed(double dt) {
@@ -81,12 +67,17 @@ void PlayerController::KeyAPressed(double dt) {
 		this->controlledObject->MoveLeft(dt);
 	}
 	else {
-		this->controlledObject->RotateLeft(dt);
+		static_cast<Car*>(this->controlledObject)->TurnRight(-1);
 	}
 }
 
 void PlayerController::KeySPressed(double dt) {
-	this->controlledObject->MoveBackward(dt);
+	if (this->view == View::free) {
+		this->controlledObject->MoveBackward(dt);
+	}
+	else {
+		static_cast<Car*>(this->controlledObject)->Accelerate(dt, -1);
+	}
 }
 
 void PlayerController::KeyDPressed(double dt) {
@@ -94,16 +85,20 @@ void PlayerController::KeyDPressed(double dt) {
 		this->controlledObject->MoveRight(dt);
 	}
 	else {
-		this->controlledObject->RotateRight(dt);
+		static_cast<Car*>(this->controlledObject)->TurnRight(1);
 	}
 }
 
 void PlayerController::KeyZPressed(double dt) {
-	this->controlledObject->MoveUp(dt);
+	if (this->view == View::free) {
+		this->controlledObject->MoveUp(dt);
+	}
 }
 
 void PlayerController::KeySpacePressed(double dt) {
-	this->controlledObject->MoveDown(dt);
+	if (this->view == View::free) {
+		this->controlledObject->MoveDown(dt);
+	}
 }
 
 void PlayerController::KeyCPressed(double dt) {

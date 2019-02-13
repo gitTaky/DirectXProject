@@ -11,15 +11,9 @@
 class Actor :
 	public MovableObject {
 public:
-	/*struct Attachment {
-		Attachment(XMMATRIX trans, std::unique_ptr<Actor>&& att) : transformMatrix(trans), attachedActor(std::move(att)) {}
-		XMMATRIX transformMatrix;
-		std::unique_ptr<Actor> attachedActor;
-	};*/
 	Actor() {}
 
 	virtual bool Initialize(ID3D11Device * device, ID3D11DeviceContext * deviceContext, const XMFLOAT3& pos, const XMFLOAT3& rotation = {0.f, 0.f, 0.f}) = 0;
-	//virtual bool Initialize(ID3D11Device * device, ID3D11DeviceContext * deviceContext, ID3D11ShaderResourceView * texture, const XMVECTOR& pos);
 
 	virtual void SetScale(float scale);
 	virtual void AdjustScale(float scale);

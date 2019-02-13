@@ -40,6 +40,15 @@ void Actor::Draw(const XMMATRIX & viewProjectionMatrix, const XMMATRIX& parentTr
 
 Actor::~Actor() {}
 
+//======================
+//	setup
+//		texture
+//		vertex buffer
+//		index buffer
+//	initialize
+//		position
+//		rotation
+//======================
 bool Actor::InitializeHelper(ID3D11Device * device, ID3D11DeviceContext * deviceContext, const std::wstring& texturePath, std::vector<Vertex>& v, std::vector<DWORD>& indices, const XMFLOAT3 & pos, const XMFLOAT3 & rotation) {
 	this->device = device;
 	this->deviceContext = deviceContext;

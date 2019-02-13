@@ -2,6 +2,9 @@
 #include "KeyboardEvent.h"
 #include <queue>
 
+//======================
+//	Keyboard input buffer
+//======================
 class KeyboardClass
 {
 public:

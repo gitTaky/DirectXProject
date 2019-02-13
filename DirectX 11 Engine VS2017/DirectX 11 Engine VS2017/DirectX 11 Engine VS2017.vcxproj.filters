@@ -55,15 +55,15 @@
     <Filter Include="Source Files\Models">
       <UniqueIdentifier>{d607acbc-cc2c-4cd5-921e-4ab1b77ca92f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Utils">
+      <UniqueIdentifier>{8f3942ae-6dec-474e-b0d8-94292f3615de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utils">
+      <UniqueIdentifier>{e14a09ac-89df-4240-b343-fb0d953a09ea}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="StringConverter.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ErrorLogger.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="RenderWindow.cpp">
@@ -95,9 +95,6 @@
     </ClCompile>
     <ClCompile Include="Graphics\Shaders.cpp">
       <Filter>Source Files\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="Timer.cpp">
-      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Graphics\ImGui\imgui_widgets.cpp">
       <Filter>Source Files\Graphics\ImGui</Filter>
@@ -150,14 +147,17 @@
     <ClCompile Include="GameObjects\Light.cpp">
       <Filter>Source Files\GameObjects</Filter>
     </ClCompile>
+    <ClCompile Include="Utils\ErrorLogger.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\StringConverter.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\Timer.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="StringConverter.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ErrorLogger.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="RenderWindow.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -203,9 +203,6 @@
     <ClInclude Include="Graphics\ConstantBuffer.h">
       <Filter>Header Files\Graphics</Filter>
     </ClInclude>
-    <ClInclude Include="Timer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Graphics\ImGui\imstb_truetype.h">
       <Filter>Header Files\Graphics\ImGui</Filter>
     </ClInclude>
@@ -229,9 +226,6 @@
     </ClInclude>
     <ClInclude Include="Graphics\ImGui\imconfig.h">
       <Filter>Header Files\Graphics\ImGui</Filter>
-    </ClInclude>
-    <ClInclude Include="COMException.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Levels\Scene.h">
       <Filter>Header Files\Levels</Filter>
@@ -265,6 +259,18 @@
     </ClInclude>
     <ClInclude Include="GameObjects\Light.h">
       <Filter>Header Files\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\COMException.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\ErrorLogger.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\StringConverter.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\Timer.h">
+      <Filter>Header Files\Utils</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
