@@ -9,7 +9,7 @@ DirectX 11 Engine VS2017\DirectX 11 Engine VS2017 目录下 Libs.zip文件解压
 
 # 运行
 若运行目录下不存在Data文件夹，请将DirectX 11 Engine VS2017\DirectX 11 Engine VS2017\Data 复制到运行目录
-DirectX 11 Engine VS2017.exe
+运行DirectX 11 Engine VS2017.exe
 
 # 操作说明
 ## 视角切换
