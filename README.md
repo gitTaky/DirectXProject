@@ -3,6 +3,14 @@
 
 学习并改编自教程 https://www.youtube.com/watch?v=ADC1H7vO41A&index=55&list=PLcacUGyBsOIBlGyQQWzp6D1Xn6ZENx9Y2
 
+# 编译
+DirectX 11 Engine VS2017\DirectX 11 Engine VS2017 目录下 Libs.zip文件解压并覆盖源文件
+编译project
+
+# 运行
+若运行目录下不存在Data文件夹，请将DirectX 11 Engine VS2017\DirectX 11 Engine VS2017\Data 复制到运行目录
+DirectX 11 Engine VS2017.exe
+
 # 操作说明
 ## 视角切换
 1. 自由视角
